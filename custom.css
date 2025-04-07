@@ -36,6 +36,14 @@ h3 {
   color: grey;
 }
 
+.huge {
+  font-size: 400%;
+}
+
+.hugest {
+  font-size: 800%;
+}
+
 .small {
   font-size: 60%;
 }
