@@ -576,7 +576,7 @@ This is cool! Alan learned something! Now he knows about data races, and he'll t
 
 # Rust 2025 Vision Doc
 
-[![Vision Doc Blog Post](/images/vision-doc.png)](https://blog.rust-lang.org/2025/04/04/vision-doc-survey.html)
+[![Vision Doc Blog Post](./images/vision-doc.png)](https://blog.rust-lang.org/2025/04/04/vision-doc-survey.html)
 
 ---
 
