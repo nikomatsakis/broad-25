@@ -13,11 +13,16 @@ Don't forget to update the title in [index.html](./index.html)
 
 ---
 
-# Who's this guy?
+# A short biography
 
-* Co-lead of the Rust language design team
-* Senior Principal Engineer at Amazon
-* Bursty blogger at [smallcultfollowing.com/babysteps](https://smallcultfollowing.com/babysteps)
+| | |
+| --- | --- |
+| 1997-2001 | Undergrad at MIT |
+| 2004-2011 | PhD at ETH Zurich |
+| 2011-2021 | Working on Rust @ Mozilla |
+| 2021-     | Working on Rust @ Amazon |
+
+I also have a blog at [smallcultfollowing.com/babysteps](https://smallcultfollowing.com/babysteps).
 
 ---
 
@@ -27,7 +32,19 @@ Don't forget to update the title in [index.html](./index.html)
 
 ???
 
-To be honest, I don't know! I was surprised and rather delighted to receive the invitation.
+To be honest, I don't know! I was surprised and rather delighted to receive the invitation. 
+
+Before coming here, the main thing I knew about the Broad was that it was not pronounced "broad". 
+
+As an I feel like living in Massachusetts is basically a series of learning how to pronounce things.
+
+You know what I mean. Gloucester, Gloucester.
+
+Broad, Broad.
+
+Heck, if you live in Somerville, there is a Jaques St, which of courses is pronounced Jack-ees.
+
+Anyway, I've been wanting to learn more about scientific computing for a while now, so I was pretty excitied to see the invite come by. I figured this was an opportunity I couldn't pass up.
 
 ---
 
@@ -37,22 +54,86 @@ To be honest, I don't know! I was surprised and rather delighted to receive the 
 
 .footnote[[Blog post here](https://blog.rust-lang.org/2025/04/04/vision-doc-survey.html)]
 
+???
+
+But also, the timing was impeccable.
+
+It just so happens that I've been working on a project called the Rust Vision Doc.
+
+What is this? Well, Rust has been going strong for 10 years.
+
+When we started out looking to create a viable alternative to C and C++, conventional wisdom was that we didn't have a chance.
+
+In fact, I didn't think we had a chance!
+
+But hey, we've made some serious in-roads, and the future continues to look bright.
+
+So it's a good time for us to stop and take stock of the work we've done and decide what's next.
+
+---
+
+# Looking beyond adoption
+
+What is it all **for**?
+
+--
+
+I want all programs to be written in Rust?
+
+--
+
+Nope.
+
+--
+
+I want the *right* programs to be written in Rust?
+
+--
+
+Nope.
+
+
+???
+
+One of my themes is that I want to get past adoption.
+Early on for Rust, growing and finding users was kind of axiomatically good.
+But I think at some point we have to ask ourselves, who are we doing this for?
+
+I don't expect, or even want, all programs to be written in Rust.
+
+In fact, I was going to say something like "I want the *right* programs to be written in Rust"--
+but I don't even think that's quite right.
+I mean, I won't lie, I want people to use Rust.
+But I feel like one thing I've learned is not to set my goals based on things I can't control. 
+
 ---
 
 # Rust's sweet spot
 
-### Foundational software
+I want Rust to be a fantastic choice for writing ...
 
-.footnote[[Read more](https://smallcultfollowing.com/babysteps/blog/2025/03/10/rust-2025-intro/)]
+### [Foundational software.](https://smallcultfollowing.com/babysteps/blog/2025/03/10/rust-2025-intro/)
+
+That is, the software that underpins<sup>1</sup> everything else.
+
+.footnote[<sup>1</sup> Little Rust-insider pun for y'all there. If you don't get it, count yourself lucky.]
 
 ???
 
-* Software that underlies everything else
-* Everything extra important
+Nah, what I *really* want is for Rust to *be* a fantastic choice.
+I think that will naturally lead to others picking it, but ultimately people make choices for a lot of reasons, and that's cool.
+Of course, being "a fantastic choice" begs the question, a fantastic choice *for what?*
+
+Rust actually covers a lot of ground. We've seen big pick-up in networked systems. 
+Embedded systems. CLI applications. Developer tooling. 
+A lot of different stuff. 
+These areas cover a wide variety of requirements, 
+but one thing I think they all have in common is that they are **foundational systems**.
+They are the systems that underlie everything else.
 
 ---
 
-# Rust's focus
+# What makes Foundational systems different?
 
 | | What makes Rust *Rusty?* | |
 | :-- | :-- | :-- |
@@ -64,7 +145,7 @@ To be honest, I don't know! I was surprised and rather delighted to receive the 
 
 ---
 
-# Lowering the barrier to entry
+# 🤸🏾 Accessible and supportive
 
 "Systems programming...not just for wizards anymore"
 
@@ -82,180 +163,10 @@ To be honest, I don't know! I was surprised and rather delighted to receive the 
 
 To better understand the value prop, we're going to tell a story, and it starts with Barbara. She's a Rust programmer. She's also a drawing that my daughter made some years back and that I kind of love to death.
 
-
 ---
 name: thumbnails
 
 # Let's tell a story
-
-```rust
-fn make_thumbnails(images: &[Image]) -> Vec<Image> {
-    images
-        .iter()
-        .map(|image| image.make_thumbnail())
-        .collect()
-}
-```
-
-.abspos.left30.top350[![Barbara](./images/Barbara.png)]
-
-???
-
-Barbara is working on an app and she needs to take a list of images
-and create thumbnails for them. So, she sits down and bangs out this code
-using iterators. You've probably written code like it before.
-It's a great example of composability, how the iterator APIs let you create
-combine operations like map, filter, to do non-trivial things.
-
----
-
-name: make-thumbnails-at-top
-
-```rust
-fn make_thumbnails(images: &[Image]) -> Vec<Image> {
-    images
-        .iter()
-        .map(|image| image.make_thumbnail())
-        .collect()
-}
-```
-
----
-template: make-thumbnails-at-top
-
-???
-
-This is the code Barbara writes. But what is the code that *runs*?
-This is where Rust takes advantage of a really cool trick that we learned
-from C++, which is called *zero-cost abstractions*. 
-
----
-
-template: make-thumbnails-at-top
-name: with-translated-code
-
-```rust
-fn make_thumbnails(images: &[Image]) -> Vec<Image> {
-    let mut i = 0;
-    let l = images.len();
-    let mut output = Vec::with_capacity(l);
-    while i < l {
-        output.push(images[i].make_thumbnail());
-        i += 1;
-    }
-    output
-}
-```
-
----
-template: with-translated-code
-
-???
-
-The idea is that you can write this high-level code but, once the compiler 
-is finished optimizing, what you get out is going to be equivalent to 
-the low-level code you would've written by hand.
-So something like this.  In fact, this code includes a few optimizations 
-you might not have thought of.
-
----
-
-template: with-translated-code
-
-.arrow.abspos.left430.top300.rotSW[![Arrow](./images/Arrow.png)]
-
-???
-
-For example, when we create the new array, we know how big it should be, so we can allocate it to just the right size.
-
----
-
-template: with-translated-code
-
-.arrow.abspos.left340.top420.rotNW[![Arrow](./images/Arrow.png)]
-
-???
-
-And when you access an element from an array, that normally requires 
-bounds checks.
-
----
-
-```rust
-fn make_thumbnails(images: &[Image]) -> Vec<Image> {
-    images
-        .iter()
-        .map(|image| image.make_thumbnail())
-        .collect()
-}
-```
-
-```rust
-fn make_thumbnails(images: &[Image]) -> Vec<Image> {
-    let mut i = 0;
-    let l = images.len();
-    let mut output = Vec::with_capacity(l);
-    while i < l {
-        output.push(unsafe { images.get_unchecked(i).make_thumbnail() });
-        i += 1;
-    }
-    output
-}
-```
-
-.arrow.abspos.left500.top420.rotNW[![Arrow](./images/Arrow.png)]
-
-???
-
-But since we're using iterators, we know the bounds are in-scope,
-so we can just skip them.  So you get something like this.
-
---
-
-.abspos.left650.top450.fliplr[![Barbara](./images/Barbara.png)]
-
-.abspos.left300.top550[
-.speech-bubble.barbara.right[
-Which would *you* rather write?
-]]
-
-???
-
-And this is Rust's promise: high-level things like iterators and closures
-don't come with hidden costs. Those costs can become a kind of abstraction
-tax that means that when you really need perforance you have to write
-low-level code. In Rust, at least when things are working right, that's not
-necessary.
-
----
-
-template: thumbnails
-
-
-.abspos.left300.top415[
-.speech-bubble.left.barbara[
-*Oh hey, I could run these in parallel!*
-]]
-???
-
-Here is one example. Imagine Barbara is looking at this code and she realizes, hey, we could create all these thumbnails in parallel, and things would run faster!
-
----
-
-![Rayon](./images/Rayon.png)
-
-.footnote[
-    (I am a co-maintainer, though really Josh Stone does the lion's share of the work)
-]
-
-???
-
-To do this, she goes to crates.io, where she finds a crate Rayon. In fairness, I started Rayon, but these days it's maintained by Josh Stone -- love ya Josh! Anyway, she decides to give it a try.
-
----
-name: thumbnailspar
-
-# Parallelizing with Rayon
 
 ```rust
 fn make_thumbnails(images: &[Image]) -> Vec<Image> {
@@ -268,24 +179,59 @@ fn make_thumbnails(images: &[Image]) -> Vec<Image> {
 
 .abspos.left30.top350[![Barbara](./images/Barbara.png)]
 
-.line3[![Arrow](./images/Arrow.png)]
+
+???
+
+Barbara is working on an app collecting people's data.
+She needs to take a list of images and create thumbnails for them.
+She sits down and bangs out this code high-level code.
 
 ---
-template: thumbnailspar
+template: thumbnails
+
+.arrow.abspos.left50.top180.rotE[![Arrow](./images/Arrow.png)]
 
 .abspos.left300.top415[
 .speech-bubble.left.barbara[
 *Rayon makes this so easy!*
 ]]
 
-???
+---
+template: thumbnails
 
-With Rayon, all she has to do is change one line -- `iter` becomes `par_iter` -- and voila, she has parallel execution. Neat!
+.arrow.abspos.left50.top210.rotE[![Arrow](./images/Arrow.png)]
+
+.abspos.left300.top415[
+.speech-bubble.left.barbara[
+*Just gotta make a thumbnail for each image...*
+]]
 
 
 ---
+template: thumbnails
+
+.arrow.abspos.left50.top240.rotE[![Arrow](./images/Arrow.png)]
+
+.abspos.left300.top415[
+.speech-bubble.left.barbara[
+*...and build a vector. Done. That was easy!*
+]]
+
+???
+
+Now, there's nothing particularely special about this code.
+
+You could write code like this in 100 different languages.
+
+You could write code like this in Java. It wouldn't be as efficient, but for this particular example it wouldn't matter much.
+
+You could write code like this in C++, if you had the right libraries.
+
+But what makes Rust really special is what happens next.
+
+---
 name: meetalan
-# Adding telemetry
+# Barbara gets an intern, Alan
 
 ```rust
 fn make_thumbnails(images: &[Image]) -> Vec<Image> {
