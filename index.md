@@ -40,7 +40,7 @@ You know what I mean. Gloucester, Gloucester.
 
 Broad, Broad.
 
-Heck, if you live in Somerville, there is a Jaques St, which of courses is pronounced Jack-ees.
+Heck, if you live in Somerville, there is a Jaques St, which of courses is pronounced Jakes.
 
 Anyway, I've been wanting to learn more about scientific computing for a while now, so I was pretty excitied to see the invite come by. I figured this was an opportunity I couldn't pass up.
 
