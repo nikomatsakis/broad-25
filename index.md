@@ -527,11 +527,11 @@ fn make_thumbnails(images: &[Image]) -> Vec<Image> {
     let vec = images
         .par_iter()
         .map(|image| {
-            counter.fetch_add(1, Ordering::SeqCst);
+            counter.fetch_add(1, Ordering::Relaxed);
             image.make_thumbnail()
         })
         .collect();
-    log(counter.load(Ordering::SeqCst));
+    log(counter.load(Ordering::Relaxed));
     vec
 }
 ```
@@ -542,6 +542,7 @@ fn make_thumbnails(images: &[Image]) -> Vec<Image> {
 .line6[![Arrow](./images/Arrow.png)]
 .line10[![Arrow](./images/Arrow.png)]
 
+.footnote[Surprised to see `Ordering::Relaxed`? Read [Mara's book!](https://marabos.nl/atomics/)]
 
 ???
 
