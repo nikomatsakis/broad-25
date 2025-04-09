@@ -197,13 +197,17 @@ It's a work in progress, and it always will be
 
 > **Empathy.** The ability to understand and share the feelings of another.
 
+.footnote[
+    More in my blog post, [Empathy in open source](https://smallcultfollowing.com/babysteps/blog/2023/09/27/empathy-in-open-source/).
+]
+
 ---
 
 # Us vs them
 
-Easy to fall into "us vs them" thinking
+Easy to fall into "us vs them" thinking.
 
-Developers vs maintainers
+⚠️ Developers bemoaning "the community".
 
 ---
 
