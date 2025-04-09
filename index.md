@@ -241,7 +241,7 @@ vs
     * Write code in your private repository
     * Publish the code publicly once in a while
 
-.small[
+.footnote[
     <sup>1</sup> Not in my book, anyway.
 ]
 
@@ -252,10 +252,6 @@ vs
 What everyone does: Setup a Zulip, a discord, a mailing list, something.
 
 What people rarely do: **Use it.**
-
-???
-
-How many folks
 
 ---
 
