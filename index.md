@@ -299,10 +299,23 @@ Either way, it's an opportunity.
 * RFCs
     * Get alignment on the direction *first*
     * *Then* implement
+* Key concepts
+    * Role of the RFC is to describe a proposal
+    * Role of the discussion is to unearth and elaborate tradeoffs
+    * Role of the team is to make final decision
 
 ---
 
 # Articulating a vision
+
+---
+
+# Things I'm thinking about now
+
+* What does consensus mean? (c.f. [lang team champions](https://hackmd.io/@rust-lang-team/HygA84JnJe))
+* How do we set goals? (c.f. [project goals](https://rust-lang.github.io/rust-project-goals/))
+* How do we encourage corporate teams of developers without drowning out individual volunteers? (c.f. dear god if you figure it out tell me)
+* How do we form a long-term vision when top-down stops scaling? (c.f. the [vision doc](https://rust-lang.github.io/rust-project-goals/2025h1/rust-vision-doc.html))
 
 ---
 
