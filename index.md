@@ -294,7 +294,7 @@ Is someone rude and angry? Two options
 
 Not mutually exclusive.
 
-Either way, it's an opportunity.
+Anger = opportunity
 
 ---
 
