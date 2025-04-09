@@ -40,7 +40,7 @@ Anyway, I've been wanting to learn more about scientific computing for a while n
 
 # Rust 2025 Vision Doc
 
-[![Vision Doc Blog Post](/images/vision-doc.png)](https://blog.rust-lang.org/2025/04/04/vision-doc-survey.html)
+[![Vision Doc Blog Post](./images/vision-doc.png)](https://blog.rust-lang.org/2025/04/04/vision-doc-survey.html)
 
 .footnote[[Blog post here](https://blog.rust-lang.org/2025/04/04/vision-doc-survey.html)]
 
