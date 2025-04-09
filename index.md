@@ -237,7 +237,7 @@ vs
     * Write code in your private repository
     * Publish the code publicly once in a while
 
-.footnote[
+.small[
     <sup>1</sup> Not in my book, anyway.
 ]
 
