@@ -255,7 +255,7 @@ What people rarely do: **Use it.**
 
 --
 
-RTO is actively harmful here.
+Hot take: RTO is actively harmful here.
 
 ---
 
