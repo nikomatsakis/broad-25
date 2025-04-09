@@ -253,6 +253,10 @@ What everyone does: Setup a Zulip, a discord, a mailing list, something.
 
 What people rarely do: **Use it.**
 
+--
+
+RTO is actively harmful here.
+
 ---
 
 # Step 2: Build your process as you go
