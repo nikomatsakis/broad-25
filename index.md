@@ -189,7 +189,7 @@ It's a work in progress, and it always will be
     * Empower customers to scratch their own itch, shape direction.
     * Company retains ownership, direction.
 * Create a community-owned project
-    * Committed people become maintainers, set direction.
+    * Committed contributors become maintainers, set direction.
 
 ---
 
